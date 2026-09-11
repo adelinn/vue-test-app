@@ -18,7 +18,6 @@ const requestMfaAccess = () =>
       redirect_uri: window.location.origin + "/vue-test-app/",
       audience: import.meta.env.VITE_AUTH0_AUDIENCE,
       scope: 'openid profile email mfa',
-      prompt: 'login',
     },
   })
 
@@ -38,7 +37,7 @@ const signOut = () =>
     <template v-else-if="isAuthenticated">
       <h1>Welcome, {{ user?.nickname ?? user?.name ?? user?.email }}</h1>
       <button type="button" @click="requestMfaAccess">
-        Continue with MFA
+        Access high privileged functionality (requres MFA)
       </button>
       <button type="button" @click="signOut">Log out</button>
     </template>
