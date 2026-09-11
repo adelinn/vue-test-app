@@ -15,7 +15,7 @@ const login = () => loginWithRedirect()
 const requestMfaAccess = () =>
   loginWithRedirect({
     authorizationParams: {
-      redirect_uri: window.location.origin,
+      redirect_uri: window.location.origin + "/vue-test-app/",
       audience: import.meta.env.VITE_AUTH0_AUDIENCE,
       scope: 'openid profile email mfa',
       prompt: 'login',
@@ -25,7 +25,7 @@ const requestMfaAccess = () =>
 const signOut = () =>
   logout({
     logoutParams: {
-      returnTo: window.location.origin,
+      returnTo: window.location.origin + "/vue-test-app/",
     },
   })
 </script>
